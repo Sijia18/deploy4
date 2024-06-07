@@ -1,13 +1,24 @@
 spring:
   profiles:
     active: prod
-server:
-  port: 5000
-welcomeMsg: "Hello from Prod"
+
 ---
 spring:
-  profiles:
-    active: test
+  config:
+    activate:
+      on-profile: prod
+
+server:
+  port: 5000
+
+welcomeMsg: "Hello from Prod"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
 server:
   port: 4000
+
 welcomeMsg: "Hello from Test"
